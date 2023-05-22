@@ -297,6 +297,7 @@ public class DriverClass {
 		System.out.println("----  1. Sign up -=-=- 2. Display All Postings -=-=- 3. Quit  ----");
 		System.out.println("-------------------------------------------------------------------");
 		inp = s.nextLine();
+		s.close();
 	}
 	
 	// -------------------------------------------- start User ----------------------------------------------------
@@ -306,6 +307,7 @@ public class DriverClass {
 			System.out.println("----  1. Add new resume -=-=- 2. Post -=-=- 3. Search Resume -=-=- 4. Display all Resume -=-=- 5. Display Posts -=-=- 6. Quit  ----");
 			System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 			inp = s.nextLine();
+			s.close();
 		}
 	
 	// ----------------------------------------------- read -------------------------------------------------------
@@ -316,18 +318,22 @@ public class DriverClass {
 		if(enter.isEmpty()) {
 			System.out.println("");
 		}
+		s.close();
 	}
 	
 	// ---------------------------------------------- Admin ------------------------------------------------------
 	public static void admin() {
 		
 		Scanner in = new Scanner(System.in);
-		ArrayList<Resume> resumes = new ArrayList<Resume>();
+		//ArrayList<Resume> resumes = new ArrayList<Resume>();
 		
-		String filePath = "C:\\eclipse-workspace\\Career Information Management System\\src\\Resumes.csv";
-		String filePathUser = "C:\\eclipse-workspace\\Career Information Management System\\src\\User.csv";
-		String filePathPost = "C:\\eclipse-workspace\\Career Information Management System\\src\\Post.csv";
-		
+		//String filePath = "C:\\eclipse-workspace\\Career Information Management System\\src\\Resumes.csv";
+		///String filePath = "C:\\Users\\Owner\\Documents\\Workspace\\JobsRUsProject\\src\\com\\skillstorm\\Resume.txt";
+		//String filePathUser = "C:\\eclipse-workspace\\Career Information Management System\\src\\User.csv";
+		//String filePathUser = "C:\\Users\\Owner\\Documents\\Workspace\\JobsRUsProject\\src\\com\\skillstorm\\User.csv";
+		//String filePathPost = "C:\\eclipse-workspace\\Career Information Management System\\src\\Post.csv";
+		String filePathPost = "C:\\Users\\Owner\\Documents\\Workspace\\JobsRUsProject\\src\\com\\skillstorm\\Post.csv";
+
 		System.out.println();
 		System.out.println("                      --------------------------------------");
 		System.out.println("                      *************JOB POSTINGS*************");
@@ -336,7 +342,9 @@ public class DriverClass {
 			startAdmin();
 			if(inp.equals("1")) {
 				//Enter resume of user
-					String filePathUser1 = "C:\\eclipse-workspace\\Career Information Management System\\src\\User.csv";
+					//String filePathUser1 = "C:\\eclipse-workspace\\Career Information Management System\\src\\User.csv";
+					String filePathUser1 = "C:\\Users\\Owner\\Documents\\Workspace\\JobsRUsProject\\src\\com\\skillstorm\\User.csv";
+
 					ArrayList<User> users = new ArrayList<User>();
 					User u = new User();
 					System.out.print("User name: ");
@@ -352,18 +360,11 @@ public class DriverClass {
 				displayPostJob(filePathPost);
 				read();
 			}
-//			else if(inp.equals("3")) {
-//				
-//				readResume(filePath);
-//				read();
-//			}
-//			else if(inp.equals("4")) {
-//				userInfoDelete(filePathUser);
-//				System.out.println();
-//			}
+
 		}while(!inp.equals("3"));
 		
 		System.out.println("Goodbye");
+		in.close();
 	}
 	
 	// ---------------------------------------------- User ------------------------------------------------------
@@ -372,9 +373,11 @@ public class DriverClass {
 		Scanner in = new Scanner(System.in);
 		ArrayList<Resume> resumes = new ArrayList<Resume>();
 		ArrayList<Post> posts = new ArrayList<Post>();
-		String filePath = "C:\\eclipse-workspace\\Career Information Management System\\src\\Resumes.csv";
-		String postFilePath = "C:\\eclipse-workspace\\Career Information Management System\\src\\Post.csv";
-		
+		//String filePath = "C:\\eclipse-workspace\\Career Information Management System\\src\\Resumes.csv";
+		String filePath = "C:\\Users\\Owner\\Documents\\Workspace\\JobsRUsProject\\src\\com\\skillstorm\\Resume.txt";
+		//String postFilePath = "C:\\eclipse-workspace\\Career Information Management System\\src\\Post.csv";
+		String postFilePath = "C:\\Users\\Owner\\Documents\\Workspace\\JobsRUsProject\\src\\com\\skillstorm\\Post.csv";
+
 		System.out.println();
 		System.out.println("                        ------------------------------");
 		System.out.println("                        **** Welcome to Jobs R Us ****");
@@ -446,6 +449,7 @@ public class DriverClass {
 		}while(!inp.equals("6"));
 		
 		System.out.println("\n                               ====  Goodbye  ====\n");
+		in.close();
 	}
 	
 	// ---------------------------------------------- Edit Resume ------------------------------------------------------
@@ -545,7 +549,7 @@ public class DriverClass {
 		Scanner in = new Scanner(System.in);
 		
 		a1: while(true) {
-		String admin, pass, user;
+		String admin, pass;
 		System.out.println("--------------------------------Welcome to JOBS R US--------------------------------");
 		System.out.println("\n************************************ Home Page *************************************");
 		System.out.println("\nWe look forward to you applying with us. You are more than welcome to see the jobs that we ");
@@ -579,7 +583,9 @@ public class DriverClass {
 				t1: while(true) {
 					
 					if(a.equals("1")) {
-							String filePathUser = "C:\\eclipse-workspace\\Career Information Management System\\src\\User.csv";
+							//String filePathUser = "C:\\eclipse-workspace\\Career Information Management System\\src\\User.csv";
+							String filePathUser = "C:\\Users\\Owner\\Documents\\Workspace\\JobsRUsProject\\src\\com\\skillstorm\\User.csv";
+
 							ArrayList<User> users = new ArrayList<User>();
 							User u = new User();
 							System.out.print("User name: ");
@@ -593,8 +599,9 @@ public class DriverClass {
 					}
 					else if(a.equals("2")) {
 						a2: while(true) {
-							String filePathUser = "C:\\eclipse-workspace\\Career Information Management System\\src\\User.csv";
-							User u = new User();
+							//String filePathUser = "C:\\eclipse-workspace\\Career Information Management System\\src\\User.csv";
+							String filePathUser = "C:\\Users\\Owner\\Documents\\Workspace\\JobsRUsProject\\src\\com\\skillstorm\\User.csv";
+							//User u = new User();
 							System.out.print("User name: ");
 							String uN = in.nextLine();
 							System.out.print("Password: ");
@@ -634,7 +641,7 @@ public class DriverClass {
 				System.out.println("\nPlease enter a valid number");
 			}
 		}
-
+		in.close();
 	}
 
 }
